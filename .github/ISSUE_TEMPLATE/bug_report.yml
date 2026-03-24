@@ -1,0 +1,93 @@
+name: Bug Report
+description: Report a bug or unexpected behavior
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report this. Fill out the sections below so we can reproduce and fix the issue.
+
+  - type: dropdown
+    id: framework
+    attributes:
+      label: Framework
+      options:
+        - QBCore
+        - QBox
+        - ESX
+        - ox_core
+    validations:
+      required: true
+
+  - type: dropdown
+    id: inventory
+    attributes:
+      label: Inventory
+      options:
+        - ox_inventory
+        - qb-inventory
+        - qs-inventory
+        - N/A
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: aethra-bridge version
+      placeholder: "1.0.0"
+    validations:
+      required: true
+
+  - type: input
+    id: oxlib-version
+    attributes:
+      label: ox_lib version
+      placeholder: "3.x.x"
+    validations:
+      required: true
+
+  - type: input
+    id: artifacts
+    attributes:
+      label: Server artifacts version
+      placeholder: "e.g. 7290"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Clearly describe the bug and what you expected to happen instead.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: List the steps needed to trigger this bug.
+      placeholder: |
+        1. Start server with QBCore and ox_inventory
+        2. Call Bridge.Inventory.AddItem(...)
+        3. Observe error in console
+    validations:
+      required: true
+
+  - type: textarea
+    id: errors
+    attributes:
+      label: Error output
+      description: Paste any relevant errors from the server or client console.
+      render: shell
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context
+      description: Screenshots, config changes, or anything else that might help.
+    validations:
+      required: false
